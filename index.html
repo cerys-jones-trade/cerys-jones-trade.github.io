@@ -90,31 +90,19 @@
         over East Coast USA (18th-19th April 2022)
       </p>
       <div class="session">
-        <h2>Casualty</h2>
-        <div class="row colors"></div>
-        <div class="row labels">
-          <div class="label">0</div>
-          <div class="label">1</div>
-          <div class="label">2</div>
-          <div class="label">3</div>
-          <div class="label">4</div>
-          <div class="label">5+</div>
-        </div>
-      </div>
-      <div class="session">
-        <h2>Hour: <label id="active-hour">12PM</label></h2>
+        <h2>DateTime: <label id="active-hour">18th April 12PM</label></h2>
         <input
           id="slider"
           class="row"
           type="range"
           min="0"
-          max="23"
+          max="47"
           step="1"
           value="12"
         />
       </div>
       <div class="session">
-        <h2>Day of the week</h2>
+        <h2>Point of Interest</h2>
         <div class="row" id="filters">
           <input
             id="all"
@@ -125,9 +113,9 @@
           />
           <label for="all">All</label>
           <input id="weekday" type="radio" name="toggle" value="weekday" />
-          <label for="weekday">Weekday</label>
+          <label for="weekday">Factories</label>
           <input id="weekend" type="radio" name="toggle" value="weekend" />
-          <label for="weekend">Weekend</label>
+          <label for="weekend">Ports</label>
         </div>
       </div>
     </div>
@@ -146,26 +134,39 @@
         let filterDay = ['!=', ['string', ['get', 'Day']], 'placeholder'];
         
         map.loadImage('./factory-icon.png', (error, image) => {
-          if (error) throw error;
-          
-          map.addImage('factory-icon', image);
-          
-          map.addSource('factories', {
-          'type': 'geojson',
-          'data': './PharmaceuticalData.geojson'
-       	  });
-	});
-	      
-       	map.addLayer({
-          id: 'factory-layer',
-          type: 'symbol',
-          source: 'factories',
-          layout: {
-            'icon-image': 'factory-icon',
-            'icon-size': 0.5,
-            'icon-allow-overlap': true
-          }
-        });
+		if (error) throw error;
+		map.addImage('factory-icon', image);
+			
+		// Add a GeoJSON source with 2 points
+		map.addSource('factories', {
+			'type': 'geojson',
+			'source': './PharmaceuticalData.geojson'
+			'data': {
+				'type': 'FeatureCollection',
+				'features': ['title', ['get', 'Name']
+				]
+			}
+		});
+ 
+		// Add a symbol layer
+		map.addLayer({
+			'id': 'factories',
+			'type': 'symbol',
+			'source': 'factories',
+			'layout': {
+			'icon-image': 'factory-icon',
+			// get the title name from the source's "title" property
+			'text-field': ['get', 'title'],
+			'text-font': [
+			'Open Sans Semibold',
+			'Arial Unicode MS Bold'
+			],
+			'text-offset': [0, 1.25],
+			'text-anchor': 'top'
+			}
+		});
+		}
+	);
             
         map.addLayer({
           id: 'collisions',
@@ -206,8 +207,7 @@
           'filter': ['all', filterHour, filterDay]
         });
 
-          
-        
+            
         // update hour filter when the slider is dragged
         document.getElementById('slider').addEventListener('input', (event) => {
           const hour = parseInt(event.target.value);
