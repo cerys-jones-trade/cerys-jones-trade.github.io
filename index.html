@@ -182,7 +182,16 @@
           },
           'filter': ['all', filterHour, filterDay]
         });
-
+        
+        map.addLayer({
+          id: 'factories',
+          type: 'circle',
+          source: {
+            type: 'geojson',
+            data: './PharmaceuticalData.geojson' // replace this with the url of your own geojson
+          },
+        });
+        
         // update hour filter when the slider is dragged
         document.getElementById('slider').addEventListener('input', (event) => {
           const hour = parseInt(event.target.value);
