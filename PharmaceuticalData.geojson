@@ -1,0 +1,235 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -77.2264447,39.13723279 ]
+    },
+    "properties": {
+    "Name":"Novavax"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -76.62938077,39.28888209 ]
+    },
+    "properties": {
+    "Name":"Paragon Bioservices"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -74.84731585,40.29325155 ]
+    },
+    "properties": {
+    "Name":"Janssen"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -74.63896082,40.63508532 ]
+    },
+    "properties": {
+    "Name":"Sanofi Pharmaceuticals"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -74.64953543,40.577207 ]
+    },
+    "properties": {
+    "Name":"Janssen"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -74.02988822,40.91104701 ]
+    },
+    "properties": {
+    "Name":"Genesis Bio-Pharamceuticals"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -74.2741934,40.67714292 ]
+    },
+    "properties": {
+    "Name":"Merck"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -75.73270831,39.67711789 ]
+    },
+    "properties": {
+    "Name":"Ibio"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -75.46742699,40.0633458 ]
+    },
+    "properties": {
+    "Name":"Formula Pharmaceuticals"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -75.12519564,40.33254808 ]
+    },
+    "properties": {
+    "Name":"Immunotope Inc"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -75.17272096,39.89682617 ]
+    },
+    "properties": {
+    "Name":"GlaxoSmithKline"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -75.32347122,41.09171904 ]
+    },
+    "properties": {
+    "Name":"Connaught Laboratories"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -75.53328662,41.54807852 ]
+    },
+    "properties": {
+    "Name":"Vital Probes"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -73.26526587,40.8097184 ]
+    },
+    "properties": {
+    "Name":"American Devices"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -71.10074574,42.36147596 ]
+    },
+    "properties": {
+    "Name":"Acambis"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -71.08849017,42.36559915 ]
+    },
+    "properties": {
+    "Name":"Biogen"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -71.09042037,42.34555072 ]
+    },
+    "properties": {
+    "Name":"Replikins"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -77.22897972,39.162144 ]
+    },
+    "properties": {
+    "Name":"Emergent BioSolutions"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -71.0915328,42.36481282 ]
+    },
+    "properties": {
+    "Name":"Moderna"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -71.0876561,42.36803384 ]
+    },
+    "properties": {
+    "Name":"Variation Biotechnologies"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -74.44310598,40.49844695 ]
+    },
+    "properties": {
+    "Name":"Johnson & Johnson"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -73.80991893,41.06923159 ]
+    },
+    "properties": {
+    "Name":"TechnoVax"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -74.06917634,40.78628584 ]
+    },
+    "properties": {
+    "Name":"Pfizer"
+    }
+  }
+]
+}
