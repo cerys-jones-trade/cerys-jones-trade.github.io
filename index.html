@@ -116,7 +116,8 @@
       </div>
     </div>
     <script>
-      mapboxgl.accessToken = 'pk.eyJ1IjoiY2VyeXNqam9uZXMiLCJhIjoiY2wybWtlaDZ3MGg4MDNkbWE5ODBuaDZ5NSJ9.1uUmuW-AAE75oIcSWJTJ0w';
+      
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2VyeXNqam9uZXMiLCJhIjoiY2wybWtlaDZ3MGg4MDNkbWE5ODBuaDZ5NSJ9.1uUmuW-AAE75oIcSWJTJ0w';
       const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/light-v10',
@@ -127,41 +128,39 @@
       map.on('load', () => {
         
         map.loadImage('./factory-icon.png', (error, image) => {
-		if (error) throw error;
-		map.addImage('factory-icon', image);
+          if (error) throw error;
+          map.addImage('factory-icon', image);
 			
-		// Add a GeoJSON source with 2 points
-		map.addSource('factories', {
-			'type': 'geojson',
-			'source': './PharmaceuticalData.geojson'
-			'data': {
-				'type': 'FeatureCollection',
-				'features': ['title', ['get', 'Name']
-				]
-			}
-		});
- 
-		// Add a symbol layer
-		map.addLayer({
-			'id': 'factories',
-			'type': 'symbol',
-			'source': 'factories',
-			'layout': {
-			'icon-image': 'factory-icon',
-			// get the title name from the source's "title" property
-			'text-field': ['get', 'title'],
-			'text-font': [
-			'Open Sans Semibold',
-			'Arial Unicode MS Bold'
-			],
-			'text-offset': [0, 1.25],
-			'text-anchor': 'top'
-			}
-		});
-		}
-	);
-            
-      });
+          // Add a GeoJSON source with 2 points
+          map.addSource('factories', {
+            'type': 'geojson',
+            'source': './PharmaceuticalData.geojson',
+            'data': {
+              'type': 'FeatureCollection',
+              'features': ['title', ['get', 'Name']
+              ]
+            }
+        		});
+ 				});
+        
+        // Add a symbol layer
+        map.addLayer({
+          'id': 'factories',
+          'type': 'symbol',
+          'source': 'factories',
+          'layout': {
+          'icon-image': 'factory-icon',
+          // get the title name from the source's "title" property
+          'text-field': ['get', 'title'],
+          'text-font': [
+          'Open Sans Semibold',
+          'Arial Unicode MS Bold'
+          ],
+          'text-offset': [0, 1.25],
+          'text-anchor': 'top'
+          }
+        });
+			});
 	map.addControl(new mapboxgl.FullscreenControl());
     </script>
   </body>
