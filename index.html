@@ -80,15 +80,11 @@
   <body>
     <div id="map"></div>
     <div id="console">
-      <h1>Storm impact modelling</h1>
-      <p>
-        Data:
-        <a
-          href="https://www.worldweatheronline.com/developer/api/"
-          >Late season Nor'easter</a
-        >
-        over East Coast USA (18th-19th April 2022)
-      </p>
+      	<h1>Storm impact modelling</h1>
+      	<p>Late season Nor'easter over East Coast USA (18th-19th April 2022)</p>
+	<h2>Data:</h2>
+	    <p>Weather Data - <a href="https://www.worldweatheronline.com/developer/api/">World Weather Online</a><br>
+	    Factory location data - <a href="https://www.thomasnet.com/nsearch.html?act=M&cov=NA&heading=89910400&what=vaccine">Thomas Publishing</a></p>
       <div class="session">
         <h2>DateTime: <label id="active-hour">18th April 12PM</label></h2>
         <input
@@ -102,7 +98,7 @@
         />
       </div>
       <div class="session">
-        <h2>Point of Interest</h2>
+        <h2>Points of Interest</h2>
         <div class="row" id="filters">
           <input
             id="all"
@@ -112,10 +108,10 @@
             checked="checked"
           />
           <label for="all">All</label>
-          <input id="weekday" type="radio" name="toggle" value="weekday" />
-          <label for="weekday">Factories</label>
-          <input id="weekend" type="radio" name="toggle" value="weekend" />
-          <label for="weekend">Ports</label>
+          <input id="factories" type="radio" name="toggle" value="factories" />
+          <label for="ports">Factories</label>
+          <input id="ports" type="radio" name="toggle" value="ports" />
+          <label for="ports">Ports</label>
         </div>
       </div>
     </div>
