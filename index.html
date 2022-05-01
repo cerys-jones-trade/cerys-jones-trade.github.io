@@ -147,59 +147,66 @@
         
         map.loadImage('./factory-icon.png', (error, image) => {
           if (error) throw error;
-          map.addImage('factory-icon', image);
+          
+          map.addImage('factory-icon', image, { 'sdf': true });
+          
+          map.addSource('factories', {
+          'type': 'geojson',
+          'data': './PharmaceuticalData.geojson'
+       
+       });
 
-          map.addLayer({
-            id: 'collisions',
-            type: 'circle',
-            source: {
-              type: 'geojson',
-              data: './collisions1601.geojson' // replace this with the url of your own geojson
-            },
-            paint: {
-              'circle-radius': [
-                'interpolate',
-                ['linear'],
-                ['number', ['get', 'Casualty']],
-                0,
-                4,
-                5,
-                24
-              ],
-              'circle-color': [
-                'interpolate',
-                ['linear'],
-                ['number', ['get', 'Casualty']],
-                0,
-                '#2DC4B2',
-                1,
-                '#3BB3C3',
-                2,
-                '#669EC4',
-                3,
-                '#8B88B6',
-                4,
-                '#A2719B',
-                5,
-                '#AA5E79'
-              ],
-              'circle-opacity': 0.8
-            },
-            'filter': ['all', filterHour, filterDay]
-          });
+       map.addLayer({
+          id: 'factory-layer',
+          type: 'symbol',
+          source: 'factories',
+          layout: {
+            'icon-image': 'factory-icon',
+            'icon-size': 0.5,
+            'icon-allow-overlap': true
+          }
+        });
+            
+        map.addLayer({
+          id: 'collisions',
+          type: 'circle',
+          source: {
+            type: 'geojson',
+            data: './collisions1601.geojson' // replace this with the url of your own geojson
+          },
+          paint: {
+            'circle-radius': [
+              'interpolate',
+              ['linear'],
+              ['number', ['get', 'Casualty']],
+              0,
+              4,
+              5,
+              24
+            ],
+            'circle-color': [
+              'interpolate',
+              ['linear'],
+              ['number', ['get', 'Casualty']],
+              0,
+              '#2DC4B2',
+              1,
+              '#3BB3C3',
+              2,
+              '#669EC4',
+              3,
+              '#8B88B6',
+              4,
+              '#A2719B',
+              5,
+              '#AA5E79'
+            ],
+            'circle-opacity': 0.8
+          },
+          'filter': ['all', filterHour, filterDay]
+        });
 
-          map.addLayer({
-            id: 'factories',
-            type: 'symbol',
-            source: {
-              type: 'geojson',
-              data: './PharmaceuticalData.geojson'
-            },
-            'layout': {
-              'icon-image': 'factory-icon',
-              'icon-size': 0.5,
-              'icon-allow-overlap': true
-          });
+          
         
         // update hour filter when the slider is dragged
         document.getElementById('slider').addEventListener('input', (event) => {
