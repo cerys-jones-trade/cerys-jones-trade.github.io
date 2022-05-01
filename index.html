@@ -148,7 +148,7 @@
         map.loadImage('./factory-icon.png', (error, image) => {
           if (error) throw error;
           
-          map.addImage('factory-icon', image, { 'sdf': true });
+          map.addImage('factory-icon', image);
           
           map.addSource('factories', {
           'type': 'geojson',
@@ -165,9 +165,6 @@
             'icon-size': 0.5,
             'icon-allow-overlap': true
           }
-	  paint: {
-	    'icon-color': '#FF8C00'
-	  }
         });
             
         map.addLayer({
