@@ -119,14 +119,34 @@
 
 	    // Instructions on what to build on loading
 	    map.on('load', () => {
+		map.loadImage(
+			'./factory-icon.png',
+			(error, image) => {
+			if (error) throw error;
+
+			// Add the image to the map style.
+			map.addImage('factory', image);
+			);
 
 		// Add a symbol layer
 		map.addLayer({
 		  'id': 'factories',
-		  'type': 'circle',
+		  'type': 'symbol',
 		  'source':{
 			  'type':'geojson',
 			  'data':'./PharmaceuticalData.geojson'
+		  	   }
+		  'layout':{'icon-image':'factory',
+			   'icon-size':0.25}
+		});
+		    
+		// Add a symbol layer
+		map.addLayer({
+		  'id': 'ports',
+		  'type': 'circle',
+		  'source':{
+			  'type':'geojson',
+			  'data':'./us-ports.geojson'
 		  	   }
 		});
 	    });
