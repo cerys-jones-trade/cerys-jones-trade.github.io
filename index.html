@@ -137,20 +137,34 @@
 			  'type': 'symbol',
 			  'source':'point',
 			  'layout':{'icon-image':'factory',
-				   'icon-size':0.25}
+				   'icon-size':0.1}
 			});
 		});
 
 		 
 		// Add port layer
-		map.addLayer({
-		  'id': 'ports',
-		  'type': 'circle',
-		  'source':{
-			  'type':'geojson',
-			  'data':'./us-ports.geojson'
-		  	   }
+		map.loadImage(
+			'./port-icon.png',
+			(error, image) => {
+			if (error) throw error;
+
+			// Add the image to the map style.
+			map.addImage('port', image);
+			
+			map.addSource('ports',{
+				'type':'geojson',
+				'data': './us-ports.geojson'
+		   	});
+				
+			map.addLayer({
+			  'id': 'ports',
+			  'type': 'symbol',
+			  'source':'ports',
+			  'layout':{'icon-image':'port',
+				   'icon-size':0.05}
+			});
 		});
+	    
 	    });
 	  
 	  map.addControl(
