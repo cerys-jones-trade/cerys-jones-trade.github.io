@@ -128,21 +128,9 @@
 			map.addImage('factory', image);
 			
 			map.addSource('point',{
-				'type':'geojson'
-				'data':{
-					'type': 'FeatureCollection',
-					'features': [
-							{
-							'type': 'Feature',
-							'geometry': {
-							'type': 'Point',
-							'coordinates': [-77.4144, 25.0759]
-							}
-							}
-							]
-					}
-		   		}
-			);
+				'type':'geojson',
+				'data':'./PharmaceuticalData.geojson'
+		   	});
 		});
 
 		// Add a symbol layer
