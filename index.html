@@ -168,18 +168,6 @@
 		});    
 	  );
 		    
-    var layerList = document.getElementById('filters');
-    var inputs = layerList.getElementsByTagName('input');
-
-    function switchLayer(layer) {
-      var layerId = layer.target.id;
-      map.setLayoutProperty(layerId, 'visibility');
-    }
-
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].onclick = switchLayer;
-    }
-
     </script>
   </body>
 </html>
