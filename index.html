@@ -118,10 +118,6 @@
 	    // Instructions on what to build on loading
 	    map.on('load', () => {
 
-		map.loadImage('./factory-icon.png', (error, image) => {
-		  if (error) throw error;
-		  map.addImage('factory-icon', image);
-
 		  // Add a GeoJSON source with 2 points
 		  map.addSource('factories', {
 		    'type': 'geojson',
@@ -138,6 +134,7 @@
 	    });
 	    
 	  map.addControl(new mapboxgl.FullscreenControl());
+	    
     </script>
   </body>
 </html>
