@@ -120,17 +120,14 @@
 	    // Instructions on what to build on loading
 	    map.on('load', () => {
 
-		  // Add a GeoJSON source with 2 points
-		  map.addSource('factories', {
-		    'type': 'geojson',
-		    'source': './PharmaceuticalData.geojson'
-		  });
-
 		// Add a symbol layer
 		map.addLayer({
 		  'id': 'factories',
 		  'type': 'circle',
-		  'source':'factories'
+		  'source':{
+			  'type':'geojson',
+			  'data':'./PharmaceuticalData.geojson'
+		  	   }
 		});
 	    });
 	  
