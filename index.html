@@ -125,7 +125,7 @@
 			if (error) throw error;
 
 			// Add the image to the map style.
-			map.addImage('factory', image);
+			map.addImage('factory', image, {'sdf':true});
 			
 			map.addSource('point',{
 				'type':'geojson',
@@ -138,7 +138,8 @@
 			  'source':'point',
 			  'layout':{'icon-image':'factory',
 				   'icon-size':0.2,
-				   'visibility':'visible'}
+				   'visibility':'visible',
+				   'icon-color':'#f47738'}
 			});
 		});
 
@@ -150,7 +151,7 @@
 			if (error) throw error;
 
 			// Add the image to the map style.
-			map.addImage('port', image);
+			map.addImage('port', image, {'sdf':true});
 			
 			map.addSource('ports',{
 				'type':'geojson',
@@ -163,7 +164,8 @@
 			  'source':'ports',
 			  'layout':{'icon-image':'port',
 				   'icon-size':0.04,
-				   'visibility':'visible'}
+				   'visibility':'visible',
+				   'icon-color':'ffdd00'}
 			});
 		});    
 	    });
