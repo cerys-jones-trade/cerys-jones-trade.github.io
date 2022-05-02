@@ -127,7 +127,7 @@
 			// Add the image to the map style.
 			map.addImage('factory', image);
 			
-			map.addSource('factories',{
+			map.addSource('point',{
 				'type':'geojson'
 				'data':'./PharmaceuticalData.geojson'
 				}      	
@@ -138,7 +138,7 @@
 		map.addLayer({
 		  'id': 'factories',
 		  'type': 'symbol',
-		  'source':'factories'
+		  'source':'point'
 		  'layout':{'icon-image':'factory',
 			   'icon-size':0.25}
 		});
