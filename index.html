@@ -138,22 +138,22 @@
 					'type': 'Point',
 					'coordinates': [-77.4144, 25.0759]
 					}
-					}
-					]
-					}
+				}
+				]
+				}
 		   	});
+				
+			map.addLayer({
+			  'id': 'factories',
+			  'type': 'symbol',
+			  'source':'point',
+			  'layout':{'icon-image':'factory',
+				   'icon-size':0.25}
+			});
 		});
 
-		// Add a symbol layer
-		map.addLayer({
-		  'id': 'factories',
-		  'type': 'symbol',
-		  'source':'point',
-		  'layout':{'icon-image':'factory',
-			   'icon-size':0.25}
-		});
-		    
-		// Add a symbol layer
+		 
+		// Add port layer
 		map.addLayer({
 		  'id': 'ports',
 		  'type': 'circle',
