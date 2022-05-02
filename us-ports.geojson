@@ -1,0 +1,65 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -76.32688739,36.93341528 ]
+    },
+    "properties": {
+    "Name":"Port of Hampton Roads"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -74.14088648,40.69621198 ]
+    },
+    "properties": {
+    "Name":"Port of Newark"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -73.77821248,40.64275615 ]
+    },
+    "properties": {
+    "Name":"JFK International Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -74.17451605,40.68971035 ]
+    },
+    "properties": {
+    "Name":"Newark Liberty International Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -75.24375873,39.87395789 ]
+    },
+    "properties": {
+    "Name":"Philadelphia International Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -76.66842439,39.17762874 ]
+    },
+    "properties": {
+    "Name":"Baltimore/Washington International Thurgood Marshall Airport"
+    }
+  }
+]
+}
