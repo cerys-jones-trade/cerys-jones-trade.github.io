@@ -167,7 +167,26 @@
 				   'visibility':'visible'},
 			  'paint':{'icon-color':'#FFDD00'}
 			});
-		});    
+		}); 
+		    
+		map.addSource('radar', {
+				'type': 'image',
+				'data': './weathertest.png',
+				'coordinates': [
+				[-78.500, 43.000],
+				[-70.000, 43.000],
+				[-70.000, 38.500],
+				[-78.500, 38.500]
+				]
+				});
+		map.addLayer({
+				id: 'radar-layer',
+				'type': 'raster',
+				'source': 'radar',
+				'paint': {
+				'raster-fade-duration': 0
+				}
+				});
 	    });
 		    
     </script>
