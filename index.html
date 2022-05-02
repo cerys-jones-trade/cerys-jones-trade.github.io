@@ -126,16 +126,19 @@
 
 			// Add the image to the map style.
 			map.addImage('factory', image);
+			
+			map.addSource('factories',{
+				'type':'geojson'
+				'data':'./PharmaceuticalData.geojson'
+				}      	
 			);
+		);
 
 		// Add a symbol layer
 		map.addLayer({
 		  'id': 'factories',
 		  'type': 'symbol',
-		  'source':{
-			  'type':'geojson',
-			  'data':'./PharmaceuticalData.geojson'
-		  	   }
+		  'source':'factories'
 		  'layout':{'icon-image':'factory',
 			   'icon-size':0.25}
 		});
