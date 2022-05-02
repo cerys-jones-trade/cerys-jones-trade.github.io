@@ -1,167 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+  
+// Header contains meta formatting and CSS styling 
+	
   <head>
+	  
     <meta charset="utf-8" />
-    <title>Demo: Disruptive Weather Events JS</title>
+    <title>Disruptive Weather Events</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
-    <link
-      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet"/>
+    
     <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      }
+	      body {
+		margin: 0;
+		padding: 0;
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	      }
 
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
+	      #map {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+	      }
 
-      h1 {
-        font-size: 20px;
-        line-height: 30px;
-      }
+	      h1 {
+		font-size: 20px;
+		line-height: 30px;
+	      }
 
-      h2 {
-        font-size: 14px;
-        line-height: 20px;
-        margin-bottom: 10px;
-      }
+	      h2 {
+		font-size: 14px;
+		line-height: 20px;
+		margin-bottom: 10px;
+	      }
 
-      a {
-        text-decoration: none;
-        color: #2dc4b2;
-      }
+	      a {
+		text-decoration: none;
+		color: #2dc4b2;
+	      }
 
-      #console {
-        position: absolute;
-        margin: 10px;
-        width: 300px;
-        background-color: white;
-        padding: 10px 20px;
-      }
+	      #console {
+		position: absolute;
+		margin: 10px;
+		width: 300px;
+		background-color: white;
+		padding: 10px 20px;
+	      }
 
-      .session {
-        margin-bottom: 20px;
-      }
+	      .session {
+		margin-bottom: 20px;
+	      }
 
-      .row {
-        height: 12px;
-        width: 100%;
-      }
+	      .row {
+		height: 12px;
+		width: 100%;
+	      }
 
-      .colors {
-        background: linear-gradient(
-          to right,
-          #2dc4b2,
-          #3bb3c3,
-          #669ec4,
-          #8b88b6,
-          #a2719b,
-          #aa5e79
-        );
-        margin-bottom: 5px;
-      }
+	      .colors {
+		background: linear-gradient(
+		  to right,
+		  #2dc4b2,
+		  #3bb3c3,
+		  #669ec4,
+		  #8b88b6,
+		  #a2719b,
+		  #aa5e79
+		);
+		margin-bottom: 5px;
+	      }
 
-      .label {
-        width: 15%;
-        display: inline-block;
-        text-align: center;
-      }
+	      .label {
+		width: 15%;
+		display: inline-block;
+		text-align: center;
+	      }
     </style>
   </head>
 
+// Body uses HTML to structure features on the page and contains javascript for interactive features
+  
   <body>
     <div id="map"></div>
     <div id="console">
-      	<h1>Storm impact modelling</h1>
-      	<p>Late season Nor'easter over East Coast USA (18th-19th April 2022)</p>
+	<h1>Storm impact modelling</h1>
+	<p>Late season Nor'easter over East Coast USA (18th-19th April 2022)</p>
 	<h2>Data:</h2>
-	    <p>Weather Data - <a href="https://www.worldweatheronline.com/developer/api/">World Weather Online</a><br>
-	    Factory location data - <a href="https://www.thomasnet.com/nsearch.html?act=M&cov=NA&heading=89910400&what=vaccine">Thomas Publishing</a></p>
-      <div class="session">
-        <h2>DateTime: <label id="active-hour">18th April 12PM</label></h2>
-        <input
-          id="slider"
-          class="row"
-          type="range"
-          min="0"
-          max="47"
-          step="1"
-          value="12"
-        />
-      </div>
-      <div class="session">
-        <h2>Points of Interest</h2>
-        <div class="row" id="filters">
-          <input
-            id="all"
-            type="radio"
-            name="toggle"
-            value="all"
-            checked="checked"
-          />
-          <label for="all">All</label>
-          <input id="factories" type="radio" name="toggle" value="factories" />
-          <label for="ports">Factories</label>
-          <input id="ports" type="radio" name="toggle" value="ports" />
-          <label for="ports">Ports</label>
-        </div>
-      </div>
+		<p>Weather Data - <a href="https://www.worldweatheronline.com/developer/api/">World Weather Online</a><br>
+		Factory location data - <a href="https://www.thomasnet.com/nsearch.html?act=M&cov=NA&heading=89910400&what=vaccine">Thomas Publishing</a></p>
+	<div class="session">
+		<h2>DateTime: <label id="active-hour">18th April 12PM</label></h2>
+		<input id="slider" class="row" type="range" min="0" max="47" step="1" value="12"/>
+	</div>
+	<div class="session">
+		<h2>Points of Interest</h2>
+		<div class="row" id="filters">
+			  <input id="all" type="radio" name="toggle" value="all" checked="checked"/>
+			  <label for="all">All</label>
+			  <input id="factories" type="radio" name="toggle" value="factories"/>
+			  <label for="ports">Factories</label>
+			  <input id="ports" type="radio" name="toggle" value="ports"/>
+			  <label for="ports">Ports</label>
+		</div>
+	</div>
     </div>
+ 
+	  
+    // Javascript goes here
     <script>
-      
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2VyeXNqam9uZXMiLCJhIjoiY2wybWtlaDZ3MGg4MDNkbWE5ODBuaDZ5NSJ9.1uUmuW-AAE75oIcSWJTJ0w';
-      const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/light-v10',
-        center: [-76.5459, 41.6028],
-        zoom: 6.5
-      });
+	    // Access map (need access token from MapBox account) 
+	    mapboxgl.accessToken = 'pk.eyJ1IjoiY2VyeXNqam9uZXMiLCJhIjoiY2wybWtlaDZ3MGg4MDNkbWE5ODBuaDZ5NSJ9.1uUmuW-AAE75oIcSWJTJ0w';
+	      const map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/mapbox/light-v10',
+		center: [-76.5459, 41.6028],
+		zoom: 6.5
+	      });
 
-      map.on('load', () => {
-        
-        map.loadImage('./factory-icon.png', (error, image) => {
-          if (error) throw error;
-          map.addImage('factory-icon', image);
-			
-          // Add a GeoJSON source with 2 points
-          map.addSource('factories', {
-            'type': 'geojson',
-            'source': './PharmaceuticalData.geojson',
-            'data': {
-              'type': 'FeatureCollection',
-              'features': ['title', ['get', 'Name']
-              ]
-            }
-        		});
- 				});
-        
-        // Add a symbol layer
-        map.addLayer({
-          'id': 'factories',
-          'type': 'symbol',
-          'source': 'factories',
-          'layout': {
-          'icon-image': 'factory-icon',
-          // get the title name from the source's "title" property
-          'text-field': ['get', 'title'],
-          'text-font': [
-          'Open Sans Semibold',
-          'Arial Unicode MS Bold'
-          ],
-          'text-offset': [0, 1.25],
-          'text-anchor': 'top'
-          }
-        });
-			});
-	map.addControl(new mapboxgl.FullscreenControl());
+	    // Instructions on what to build on loading
+	    map.on('load', () => {
+
+		map.loadImage('./factory-icon.png', (error, image) => {
+		  if (error) throw error;
+		  map.addImage('factory-icon', image);
+
+		  // Add a GeoJSON source with 2 points
+		  map.addSource('factories', {
+		    'type': 'geojson',
+		    'source': './PharmaceuticalData.geojson',
+		    'data': {
+		      'type': 'FeatureCollection',
+		      'features': ['title', ['get', 'Name']
+		       ]}
+		  });
+	    	});
+
+		// Add a symbol layer
+		map.addLayer({
+		  'id': 'factories',
+		  'type': 'symbol',
+		  'source': 'factories',
+		  'layout': {
+			  'icon-image': 'factory-icon',
+			  'text-field': ['get', 'title'],
+			  'text-font': [
+			  'Open Sans Semibold',
+			  'Arial Unicode MS Bold'
+			  ],
+			  'text-offset': [0, 1.25],
+			  'text-anchor': 'top'
+		  }
+		});
+	    });
+	    
+	  map.addControl(new mapboxgl.FullscreenControl());
     </script>
   </body>
 </html>
