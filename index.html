@@ -169,12 +169,9 @@
 			});
 		}); 
 		    
-		    
-		document.getElementById('slider').addEventListener('input', (event) => {
-		 const datetime = parseInt(event.target.value);
-		  map.addSource('radar', {
+		map.addSource('radar', {
 				'type': 'image',
-				'url': './snow${datetime}.png',
+				'url': './snow1.png',
 				'coordinates': [
 				[-78.500, 43.000],
 				[-70.000, 43.000],
@@ -191,6 +188,10 @@
 				'raster-opacity':0.25
 				}
 				});
+		    
+		document.getElementById('slider').addEventListener('input', (event) => {
+		 const datetime = parseInt(event.target.value);
+		 map.getSource('radar').updateImage({url:'./snow${datetime}.png'});
 		  });
 		    
 		document
