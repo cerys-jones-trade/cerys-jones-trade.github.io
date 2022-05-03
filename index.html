@@ -197,8 +197,8 @@
 			.getElementById('slider')
 			.addEventListener('input', (event) => {
 			 
-			 const datetime = parseInt(event.target.value);
-			 map.getSource('radar').updateImage({url: getPath(datetime)});
+			 const hour = parseInt(event.target.value);
+			 map.getSource('radar').updateImage({url: getPath(hour)});
 			 
 			 const ampm = (hour > 12 || (hour > 4 && hour < 9)) ? 'PM' : 'AM';
 			 const hour12 = hour % 12 ? hour % 12 : 12;
