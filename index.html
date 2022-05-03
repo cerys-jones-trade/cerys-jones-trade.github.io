@@ -90,8 +90,8 @@
 		<p>Weather Data - <a href="https://www.worldweatheronline.com/developer/api/">World Weather Online</a><br>
 		Factory location data - <a href="https://www.thomasnet.com/nsearch.html?act=M&cov=NA&heading=89910400&what=vaccine">Thomas Publishing</a></p>
 	<div class="session">
-		<h2>DateTime: <label id="active-hour">18th April 12PM</label></h2>
-		<input id="slider" class="row" type="range" min="0" max="47" step="1" value="12"/>
+		<h2>Date & Time: <label id="active-hour">18th April 12AM ET</label></h2>
+		<input id="slider" class="row" type="range" min="0" max="16" step="1" value="1"/>
 	</div>
 	<div class="session">
 		<h2>Points of Interest</h2>
@@ -169,9 +169,12 @@
 			});
 		}); 
 		    
-		map.addSource('radar', {
+		    
+		document.getElementById('slider').addEventListener('input', (event) => {
+		 const datetime = parseInt(event.target.value);
+		  map.addSource('radar', {
 				'type': 'image',
-				'url': './snow1.png',
+				'url': './snow${datetime}.png',
 				'coordinates': [
 				[-78.500, 43.000],
 				[-70.000, 43.000],
@@ -179,15 +182,25 @@
 				[-78.500, 38.500]
 				]
 				});
-		map.addLayer({
+		  map.addLayer({
 				id: 'radar-layer',
 				'type': 'raster',
 				'source': 'radar',
 				'paint': {
 				'raster-fade-duration': 0,
-				'raster-opacity':0.7
+				'raster-opacity':0.25
 				}
 				});
+
+		  // converting 0-23 hour to AMPM format
+		  const ampm = (hour <= 4 || (hour >= 8 && hour <= 12)) ? 'AM' : 'PM';
+		  const hour12 = hour % 12 ? hour % 12 : 12;
+		  const date = hour <= 8 ? '18th April ' : '19th April ';
+
+		  // update text in the UI
+		  document.getElementById('active-hour').innerText = date + hour12 + ampm;
+		  });
+		    
 		document
 		  .getElementById('filters')
 		  .addEventListener('change', (event) => {
