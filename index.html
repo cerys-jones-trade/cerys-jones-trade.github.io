@@ -116,7 +116,11 @@
 		center: [-74.5459, 41.6028],
 		zoom: 7.5
 	      });
-
+	    
+	    function getPath(no) {
+		    return `./snow${no}.png`;
+	    }
+	    
 	    // Instructions on what to build on loading
 	    map.on('load', () => {
 		map.loadImage(
@@ -171,7 +175,7 @@
 		    
 		map.addSource('radar', {
 				'type': 'image',
-				'url': './snow1.png',
+				'url': getPath(1),
 				'coordinates': [
 				[-78.500, 43.000],
 				[-70.000, 43.000],
@@ -191,7 +195,7 @@
 		    
 		document.getElementById('slider').addEventListener('input', (event) => {
 		 const datetime = parseInt(event.target.value);
-		 map.getSource('radar').updateImage({url:'./snow${datetime}.png'});
+		 map.getSource('radar').updateImage({url: getPath(datetime)});
 		  });
 		    
 		document
