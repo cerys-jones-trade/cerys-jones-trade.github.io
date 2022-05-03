@@ -188,6 +188,24 @@
 				'raster-opacity':0.5
 				}
 				});
+		document
+		  .getElementById('filters')
+		  .addEventListener('change', (event) => {
+			const poi = event.target.value;
+			// update the map filter
+			if (poi === 'all') {
+				map.setLayoutProperty('factories', 'visibility', 'visible');
+				map.setLayoutProperty('ports', 'visibility', 'visible');
+			} else if (poi === 'factories') {
+				map.setLayoutProperty('factories', 'visibility', 'visible');
+				map.setLayoutProperty('ports', 'visibility', 'none');
+			} else if (poi === 'ports') {
+				map.setLayoutProperty('factories', 'visibility', 'none');
+				map.setLayoutProperty('ports', 'visibility', 'visible');
+			} else {
+			console.error('error');
+			}
+		});
 	    });
 		    
     </script>
