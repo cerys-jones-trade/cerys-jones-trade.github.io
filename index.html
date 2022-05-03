@@ -129,7 +129,7 @@
 			if (error) throw error;
 
 			// Add the image to the map style.
-			map.addImage('factory', image, {'sdf':true});
+			map.addImage('factory', image);
 			
 			map.addSource('point',{
 				'type':'geojson',
@@ -154,7 +154,7 @@
 			if (error) throw error;
 
 			// Add the image to the map style.
-			map.addImage('port', image, {'sdf':true});
+			map.addImage('port', image);
 			
 			map.addSource('ports',{
 				'type':'geojson',
