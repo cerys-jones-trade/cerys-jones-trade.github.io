@@ -202,9 +202,9 @@
 			 
 			 const ampm = (hour > 12 || (hour > 4 && hour < 9)) ? 'PM' : 'AM';
 			 const hour12 = hour % 12 ? hour % 12 : 12;
-			 const day = hour >= 8 ? '19th April ': '18th April';
+			 const date = hour >= 8 ? '19th April ': '18th April ';
 			 
-			 document.getElementById('active-hour').innerText = day + hour12 + ampm;
+			 document.getElementById('active-hour').innerText = date + hour12 + ampm + " ET";
 			  
 			});
 		    
