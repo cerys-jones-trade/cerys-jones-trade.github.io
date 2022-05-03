@@ -91,7 +91,7 @@
 		Factory location data - <a href="https://www.thomasnet.com/nsearch.html?act=M&cov=NA&heading=89910400&what=vaccine">Thomas Publishing</a></p>
 	<div class="session">
 		<h2>Date & Time: <label id="active-hour">18th April 12AM ET</label></h2>
-		<input id="slider" class="row" type="range" min="0" max="16" step="1" value="1"/>
+		<input id="slider" class="row" type="range" min="1" max="16" step="1" value="1"/>
 	</div>
 	<div class="session">
 		<h2>Points of Interest</h2>
@@ -191,14 +191,6 @@
 				'raster-opacity':0.25
 				}
 				});
-
-		  // converting 0-23 hour to AMPM format
-		  const ampm = (hour <= 4 || (hour >= 8 && hour <= 12)) ? 'AM' : 'PM';
-		  const hour12 = hour % 12 ? hour % 12 : 12;
-		  const date = hour <= 8 ? '18th April ' : '19th April ';
-
-		  // update text in the UI
-		  document.getElementById('active-hour').innerText = date + hour12 + ampm;
 		  });
 		    
 		document
