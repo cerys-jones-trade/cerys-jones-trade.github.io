@@ -141,7 +141,7 @@
 			  'type': 'symbol',
 			  'source':'point',
 			  'layout':{'icon-image':'factory',
-				   'icon-size':0.05,
+				   'icon-size':0.035,
 				   'visibility':'visible'}
 			});
 		});
@@ -166,7 +166,7 @@
 			  'type': 'symbol',
 			  'source':'ports',
 			  'layout':{'icon-image':'port',
-				   'icon-size':0.05,
+				   'icon-size':0.035,
 				   'visibility':'visible'}
 			});
 		}); 
@@ -199,7 +199,37 @@
 			map.on('mouseleave', 'places', () => {
 			map.getCanvas().style.cursor = '';
 			popup.remove();
-		});
+		    });
+		 
+		   const popup = new mapboxgl.Popup({
+			closeButton: false,
+			closeOnClick: false
+			});
+
+			map.on('mouseenter', 'ports', (e) => {
+			// Change the cursor style as a UI indicator.
+			map.getCanvas().style.cursor = 'pointer';
+
+			// Copy coordinates array.
+			const coordinates = e.features[0].geometry.coordinates.slice();
+			const description = e.features[0].properties.Name;
+
+			// Ensure that if the map is zoomed out such that multiple
+			// copies of the feature are visible, the popup appears
+			// over the copy being pointed to.
+			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+			}
+
+			// Populate the popup and set its coordinates
+			// based on the feature found.
+			popup.setLngLat(coordinates).setHTML(description).addTo(map);
+			});
+
+			map.on('mouseleave', 'places', () => {
+			map.getCanvas().style.cursor = '';
+			popup.remove();
+		    });
 		    
 		map.addSource('radar', {
 				'type': 'image',
