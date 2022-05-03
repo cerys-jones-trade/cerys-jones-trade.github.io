@@ -63,12 +63,11 @@
 	      .colors {
 		background: linear-gradient(
 		  to right,
-		  #2dc4b2,
-		  #3bb3c3,
-		  #669ec4,
-		  #8b88b6,
-		  #a2719b,
-		  #aa5e79
+		  #edf8fb,
+		  #b3cde3,
+		  #8c96c6,
+		  #8856a7,
+		  #810f7c
 		);
 		margin-bottom: 5px;
 	      }
@@ -88,6 +87,15 @@
 	<h1>Storm impact modelling</h1>
 	    <h2>US Pharmaceutical Industry</h2>
 	<p>Use this visual to observe the proximity of important pharmaceutical supply chain sites to heavy snow conditions during a late season Nor'easter over East Coast US (18th-19th April 2022)</p>
+	<div class='session'>
+	  <h2>Snow conditions</h2>
+	  <div class='row colors'>
+	  </div>
+	  <div class='row labels'>
+	    <div class='label'>Clear</div>
+	    <div class='label'>Heavy Blizzard</div>
+	  </div>
+	</div>
 	<h2>Data:</h2>
 		<p>Weather Data - <a href="https://www.worldweatheronline.com/developer/api/">World Weather Online</a><br>
 		Factory location data - <a href="https://www.thomasnet.com/nsearch.html?act=M&cov=NA&heading=89910400&what=vaccine">Thomas Publishing</a></p>
@@ -249,7 +257,7 @@
 				'source': 'radar',
 				'paint': {
 				'raster-fade-duration': 0,
-				'raster-opacity':0.25
+				'raster-opacity':0.3
 				}
 				});
 		    
